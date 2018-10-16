@@ -9,9 +9,12 @@
     <h3>but look at this oneee</h3>
     <p>paragraphparagraphparagraph<em>paragraph</em>paragraph</p>
     <p><strong>stronger</strong>paragraphhhhhhhhhh<br>HHHHHHHHHHHHHHHHH</p>
-    <a href="http://youtube.com">this is youtube</a>
-    <div>
-      <p> a new division</p>
-    </div>
+    {%for post in posts %}
+      <div>
+        <p>published: {{post.published_date}}</p>
+        <h2><a href="">{{post.title}}</a></h2>
+        <p>{{post.text|linebreaksbr}}</p>
+      </div>
+    {% endfor %}
   </body>
 </html>
