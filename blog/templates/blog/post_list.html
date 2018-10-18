@@ -1,20 +1,13 @@
-<html>
-  <head>
-    <title>mah blog</title>
-  </head>
-  <body>
-    <h1>this line is extra important</h1>
-    <h2>this line is also important but not as important</h2>
-    <h5>this one's alright too i guess</h5>
-    <h3>but look at this oneee</h3>
-    <p>paragraphparagraphparagraph<em>paragraph</em>paragraph</p>
-    <p><strong>stronger</strong>paragraphhhhhhhhhh<br>HHHHHHHHHHHHHHHHH</p>
-    {%for post in posts %}
-      <div>
-        <p>published: {{post.published_date}}</p>
-        <h2><a href="">{{post.title}}</a></h2>
-        <p>{{post.text|linebreaksbr}}</p>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <div class="date">
+        <p>published: {{ post.published_date }}</p>
       </div>
-    {% endfor %}
-  </body>
-</html>
+      <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+      <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+  {% endfor %}
+{% endblock %}
